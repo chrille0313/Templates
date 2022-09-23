@@ -18,7 +18,6 @@ public:
 	}
 
 	// Union by size;
-  /*
 	void unite(int a, int b) {
 		a = find(a);
 		b = find(b);
@@ -30,18 +29,22 @@ public:
 			size[a] += size[b];
 		}
 	}
-  */
 
+	/*
 	// Union by rank
-	void union_sets(int a, int b) {
+	void unite(int a, int b) {
 		a = find(a);
 		b = find(b);
+
 		if (a != b) {
 			if (size[a] < size[b])
 				swap(a, b);
+
 			parent[b] = a;
+
 			if (size[a] == size[b])
 				size[a]++;
 		}
 	}
+	*/
 };
