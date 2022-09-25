@@ -23,19 +23,23 @@ vector<ull> getDivisors(vector<ull> primes)
 }
 
 #include "factorsieve.cpp"
-#include "factor.cpp"
-ull getDivisorcount(ull a)
+ull getDivisorcount(vector<ull> factors, bool isSorted = false)
 {
-    // TODO: optimize (do not use map)
-    // map is probably faster than unordered, since we only have log(a) prime factors
-    map<ull, int> factorCount;
-    // Either use factor(a) to use pollard's rho or GetFactors() to use sieve
-    repe(f, GetFactors(a)) factorCount[f]++;
-    ull ans = 1;
+    if (!isSorted) sort(all(factors));
 
-    repe(factor, factorCount)
+    ull ans = 1;
+    ull f = factors[0];
+    int i = 0;
+    while (i < factors.size())
     {
-        ans = ((ans) * (factor.second + 1));
+        int start = factors[i];
+        int cnt = 0;
+        while (i < factors.size() && factors[i] == start)
+        {
+            cnt++;
+            i++;
+        }
+        ans *= cnt + 1;
     }
     return ans;
 }

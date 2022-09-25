@@ -1,7 +1,7 @@
 const int MAX_PR = 1e5;
 vi smallestfactor(MAX_PR);
 
-void smallestFactorSieve(int hi)
+void smallestFactorSieve(int hi = MAX_PR)
 {
     rep(i, hi) smallestfactor[i] = i;
     for (int i = 0; i < hi; i += 2) smallestfactor[i] = 2;
@@ -17,15 +17,14 @@ void smallestFactorSieve(int hi)
         }
     }
 }
-
-// Factor n in log(n) times
-vi GetFactors(int n)
+// Factor n in log(n) time
+vector<ull> GetFactors(int n)
 {
-    vi factors;
+    vector<ull> factors;
     int k = n;
     while (k != 1 && k != 0)
     {
-        factors.push_back(smallestfactor[k]);
+        factors.emplace_back(smallestfactor[k]);
         k /= smallestfactor[k];
     }
     return factors;
