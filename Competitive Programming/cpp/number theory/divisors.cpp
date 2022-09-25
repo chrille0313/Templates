@@ -26,6 +26,7 @@ vector<ull> getDivisors(vector<ull> primes)
 ull getDivisorcount(vector<ull> factors, bool isSorted = false)
 {
     if (!isSorted) sort(all(factors));
+    if (factors.size() == 0) return 1;
 
     ull ans = 1;
     ull f = factors[0];
