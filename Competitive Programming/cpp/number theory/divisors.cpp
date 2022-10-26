@@ -1,4 +1,5 @@
 
+// Helper function
 void setDivisors(ull n, ull i, vector<ull>& divisors, vector<pair<ull, ull>>& factors) {
     ull j, x, k;
     for (j = i; j < factors.size(); j++) {
@@ -10,6 +11,7 @@ void setDivisors(ull n, ull i, vector<ull>& divisors, vector<pair<ull, ull>>& fa
         }
     }
 }
+// Get all factor from a list of primes
 vector<ull> getDivisors(vector<ull> primes)
 {
     unordered_map<ull, ull> primeCount;
@@ -22,7 +24,7 @@ vector<ull> getDivisors(vector<ull> primes)
     return ret;
 }
 
-#include "factorsieve.cpp"
+// Get the number of divisors given factors. A lot faster than getDivisors(...).size()
 ull getDivisorcount(vector<ull> factors, bool isSorted = false)
 {
     if (!isSorted) sort(all(factors));

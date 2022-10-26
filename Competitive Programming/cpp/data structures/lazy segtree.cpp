@@ -1,4 +1,6 @@
 
+// Segment tree on steroids
+
 struct AngelBeats {
     using i64 = long long;
     static constexpr i64 INF = numeric_limits<i64>::max() / 2.1;

@@ -1,6 +1,7 @@
 const int MAX_PR = 1e5;
 vi smallestfactor(MAX_PR);
 
+// Find smallest factor of all numbers in range[0, hi)
 void smallestFactorSieve(int hi = MAX_PR)
 {
     rep(i, hi) smallestfactor[i] = i;
